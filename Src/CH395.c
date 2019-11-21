@@ -1342,7 +1342,7 @@ void CH395SocketInterrupt(uint8_t sockindex)
 				/*初始化socket1*/
 				
 			}
-			else if (len == 33)   //数据包发送
+			else if (len == 33 && MyBuffer[sockindex][8] != 0xFF)   //数据包发送
 			{
 				if(NRF24L01_TxPacket(MyBuffer[sockindex]+8) == TX_OK)
 				{
